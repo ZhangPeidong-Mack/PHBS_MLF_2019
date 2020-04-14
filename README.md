@@ -18,7 +18,7 @@ We use trading data of Shenzhen Stock Exchange and Shanghai Stock Exchange from 
 
 ## Factor Introduction
 We use some quantification factors: 
-![Factor Introduction](image/pic_factors.bmp)
+![](image/pic_factors.bmp)
 * MACD: Moving Average Convergence/Divergence, measures the separation and aggregation of short-term index moving average and long-term index moving average
 * RSI: Relative Strength Index, reflect the prosperity of the market in a certain period of time
 * EMA: Exponential Moving Average, a trend index 
@@ -62,7 +62,7 @@ testing accuracy is:  52.13%
 Logically speaking, we could not forecast the past with future data, so then we do another test, we use the samples in 2017 and 2018 as the training set, and the samples in 2019 as the testing set. And we are now interested in each week's results in 2019. 
 
 The results are listed below. the average testing accuracy is 52.59%, and each week's results are displayed:
-![Decision Tree Method 2](image/pic_decision_tree.bmp)
+![](image/pic_decision_tree.bmp)
 We can also see the F1 score and the confusion matrix:
 
 accuracy_score is: 0.5259057730590577
@@ -73,7 +73,7 @@ recall_score is:  0.35027678380279537
 
 f1_score is:  0.3906940251411418
 
-![Confusion matrix](image/pic_confusion_matrix.bmp)
+![](image/pic_confusion_matrix.bmp)
 We can find out that more than half of the stocks didn't beat the market, one of the reasons is that we use simple averages instead of market capitalization weighted averages, so the accuracy score and precision score are underestimated. 
 
 If we set one parameter of the function, average as "weighted", which means we calculate metrics for each label, and find their average weighted by support, and can account for label imbalance, we find the results here: 
