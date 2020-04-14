@@ -113,8 +113,8 @@ Training Accuracy |  Test Accuracy
 
 We then use 10-fold cross-validation to estimate the model’s generalization performance. The CV accuracy scores are also high:
 
-                   |Fold 1 |Fold 2 |Fold 3 |Fold 4 |Fold 5 |Fold 6 |Fold 7 |Fold 8 |Fold 9 |Fold 10
--------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------                   
+| Fol              |Fold 1 |Fold 2 |Fold 3 |Fold 4 |Fold 5 |Fold 6 |Fold 7 |Fold 8 |Fold 9 |Fold 10
+|------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------                   
 CV accuracy scores | 0.791 | 0.787 | 0.789 | 0.789 | 0.787 | 0.789 | 0.786 | 0.784 | 0.787 | 0.788
 
 CV accuracy: 0.788 +/- 0.002
