@@ -19,7 +19,7 @@ We use trading data of Shenzhen Stock Exchange and Shanghai Stock Exchange from 
 ## Factor Introduction
 We use some quantification factors: 
 
-<img src='image/pic_factors.bmp' align='right'/>
+<img src='image/pic_factors.bmp' align='center'/>
 
 * MACD: Moving Average Convergence/Divergence, measures the separation and aggregation of short-term index moving average and long-term index moving average
 * RSI: Relative Strength Index, reflect the prosperity of the market in a certain period of time
