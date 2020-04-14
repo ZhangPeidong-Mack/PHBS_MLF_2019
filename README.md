@@ -19,7 +19,7 @@ We use trading data of Shenzhen Stock Exchange and Shanghai Stock Exchange from 
 ## Factor Introduction
 We use some quantification factors: 
 
-<div style="text-align: center;">
+<div style="align: center">
 ![](image/pic_factors.bmp)
 </div>
 
@@ -67,7 +67,7 @@ Logically speaking, we could not forecast the past with future data, so then we 
 
 The results are listed below. the average testing accuracy is 52.59%, and each week's results are displayed:
 
-<div style="text-align: center;">
+<div  style="align: center">
 ![](image/pic_decision_tree.bmp)
 </div>
 
@@ -81,7 +81,7 @@ recall_score is:  0.35027678380279537
 
 f1_score is:  0.3906940251411418
 
-<div style="text-align: center;">
+<div  style="align: center">
 ![](image/pic_confusion_matrix.bmp)
 </div>
 
