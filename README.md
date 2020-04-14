@@ -19,8 +19,8 @@ We use trading data of Shenzhen Stock Exchange and Shanghai Stock Exchange from 
 ## Factor Introduction
 We use some quantification factors: 
 
-<div align=center>
- ![](image/pic_factors.bmp)
+<div style="text-align: center;">
+![](image/pic_factors.bmp)
 </div>
 
 * MACD: Moving Average Convergence/Divergence, measures the separation and aggregation of short-term index moving average and long-term index moving average
@@ -67,8 +67,8 @@ Logically speaking, we could not forecast the past with future data, so then we 
 
 The results are listed below. the average testing accuracy is 52.59%, and each week's results are displayed:
 
-<div align=center>
-  ![](image/pic_decision_tree.bmp)
+<div style="text-align: center;">
+![](image/pic_decision_tree.bmp)
 </div>
 
 We can also see the F1 score and the confusion matrix:
@@ -81,8 +81,8 @@ recall_score is:  0.35027678380279537
 
 f1_score is:  0.3906940251411418
 
-<div align=center>
-  ![](image/pic_confusion_matrix.bmp)
+<div style="text-align: center;">
+![](image/pic_confusion_matrix.bmp)
 </div>
 
 We can find out that more than half of the stocks didn't beat the market, one of the reasons is that we use simple averages instead of market capitalization weighted averages, so the accuracy score and precision score are underestimated. 
