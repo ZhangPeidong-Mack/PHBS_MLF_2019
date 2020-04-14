@@ -17,8 +17,8 @@ We use trading data of Shenzhen Stock Exchange and Shanghai Stock Exchange from 
 
 ## Data Preprocessing
 Raw data collected from JQ-Quant Database needs to be cleaned and features can therefore be derived from processed data. 
-Several stocks was delisted during the past 3 years, for those stocks which are not qualified for trading, we removed them from the stock pool. For the remaining stocks, their nan data due to trade suspension are filled using the most close available data. In this way, we finally get rid of all the nan values and can proceed to the next session.
-Then we import the package 'talib'. Using this package, we calculated several popular technical factors, including MOM stands for Momentum, RSI stands for Relative Strength Index, EMA stands for Exponential Moving Average, MACD stands for Moving Average Convergence / Divergence and ATR stands for Average true range. These factors will be used in building our models to predict trends of stock prices according to their factor loadings.
+Several stocks was delisted during the past 3 years, for those stocks which are not qualified for trading, we removed them from the stock pool. For the remaining stocks, their nan data due to trade suspension are filled using the previously most close available data. In this way, we finally get rid of all the nan values and can proceed to the next session.
+Then we import the package 'talib'. Using this package, we calculated several popular technical factors, including MOM stands for Momentum, RSI stands for Relative Strength Index, EMA stands for Exponential Moving Average, MACD stands for Moving Average Convergence / Divergence and ATR stands for Average true range. These factors will be used to build our models to predict trends of stock prices according to their factor loadings.
 ## TEST YU
 hello
 
