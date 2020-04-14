@@ -10,7 +10,7 @@ Zhang Peidong(张培栋) | 1901212671 | [ZhangPeidong-Mack](https://github.com/Z
 Zhong Lin(钟林) | 1801212992 | [zhong-lin-pku](https://github.com/zhong-lin-pku)
 
 ## Project goal
-Our goal is to predict trends of stocks and . We will use classifiers such as SVM, decision tree and random forest to predict trends of stocks and then compare advantages and disadvantages of each algorithm. Then we will use models such as linear regression, SVM, random forest and Multi-Layer Perceptron to predict specific prices, again we will compare advantages and disadvantages of each model. Other skills such as k-fold cross-validation will also be applied.
+Our goal is to predict trends of stocks based on the historicial data. We will apply classifiers such as SVM, decision tree, logistic regression and random forest to predict the trends of stocks and then compare advantages and disadvantages of each model. What's more, we can try to predict the trends of some specific stocks to test if our model is reliable in reality and to refine our model as well.
 
 ## Data Description
 We use trading data of Shenzhen Stock Exchange and Shanghai Stock Exchange from 2017-01-01 to 2019-12-31. Features include the opening price, closing price, highest price, lowest price, trading volume and turnover. The dataset is too large so we only upload part of it. Click [here](https://pan.baidu.com/s/1aaYOzaOtSxtKzsZU-PMNlg) with extraction code "nspy" if you want to see a complete version of our data.
@@ -21,11 +21,13 @@ We use some quantification factors:
 
 <img src='image/pic_factors.bmp' align='center'/>
 
-* MACD: Moving Average Convergence/Divergence, measures the separation and aggregation of short-term index moving average and long-term index moving average
-* RSI: Relative Strength Index, reflect the prosperity of the market in a certain period of time
-* EMA: Exponential Moving Average, a trend index 
-* MOM: Momentum, measures the speed of price changes
-* ATR: Average True Range, represent market change rate
+Factors |                                           Meaning                                                                          |
+--------|----------------------------------------------------------------------------------------------------------------------------|
+  MACD  | Moving Average Convergence, measures the separation and aggregation of short-term and long-term index moving average
+  RSI   |Relative Strength Index, reflect the prosperity of the market in a certain period of time
+  EMA   |Exponential Moving Average, a trend index 
+  MOM   |Momentum, measures the speed of price changes
+  ATR   |Average True Range, represent market change rate
 
 ## Data Preprocessing
 Raw data collected from JQ-Quant Database needs to be cleaned and features can therefore be derived from processed data. 
