@@ -1,5 +1,4 @@
-# PHBS_MLF_2019
-Predicting trends of stocks
+# Predicting trends of stocks (Group 9)
 
 ## Team members:
 Name                   |     Student ID    |     GitHub ID
@@ -108,9 +107,9 @@ To save computational cost, we use PCA method and set the component equivalent t
 
 We split the dataset by 7:3 and learn from 10 nearest neighbors. The results show that KNN performs really well:
 
-Training Accuracy: 0.819
-
-Test Accuracy: 0.786
+Training Accuracy |  Test Accuracy
+------------------|----------------
+0.819| 0.786
 
 We then use 10-fold cross-validation to estimate the model’s generalization performance. The CV accuracy scores are also high:
 
@@ -119,14 +118,15 @@ CV accuracy scores: [0.79138299 0.78670867 0.78886932 0.78944516 0.7870063 0.789
 CV accuracy: 0.788 +/- 0.002
 
 The learning curve show that the gap between validation and training accuracy does not widen even when number of samples excess 150,000. From the validation curve we can also see that 10 nearest neighbors is a good choice if we want to save computational cost.
-![](image/ learning_curve.png)
-
+![](image/learning_curve.png)
+![](image/validation_curve.png)
 
 To see whether KNN will mistake an upgoing trend for a downward one, we calculate the confusion matrix. Based on the confusion matrix, we can calculate the precision, recall and F1-score. The F1-score shows a good balance between recall and precision, which means that the loss for mistaking trends can be partially avoided.
 Confusion matrix 
 55000   | 10656
 --------|--------
 16371   | 44497
+
 precision_score | recall_score | f1_score |
------------------|--------------|----------|
+----------------|--------------|----------|
 0.807|0.731|0.767
