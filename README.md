@@ -113,10 +113,9 @@ Training Accuracy |  Test Accuracy
 
 We then use 10-fold cross-validation to estimate the model’s generalization performance. The CV accuracy scores are also high:
 
-| Fol              |Fold 1 |Fold 2 |Fold 3 |Fold 4 |Fold 5 |Fold 6 |Fold 7 |Fold 8 |Fold 9 |Fold 10
+| Fold             |Fold 1 |Fold 2 |Fold 3 |Fold 4 |Fold 5 |Fold 6 |Fold 7 |Fold 8 |Fold 9 |Fold 10
 |------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------                   
 CV accuracy scores | 0.791 | 0.787 | 0.789 | 0.789 | 0.787 | 0.789 | 0.786 | 0.784 | 0.787 | 0.788
-
 CV accuracy: 0.788 +/- 0.002
 
 The learning curve show that the gap between validation and training accuracy does not widen even when number of samples excess 150,000. From the validation curve we can also see that 10 nearest neighbors is a good choice if we want to save computational cost.
