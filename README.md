@@ -86,6 +86,6 @@ recall_score is:  0.5259057730590577
 ## Applying logistic regression
 For the method of logistic regression, we divide the data into training data(80%) and test data(20%）and do some standardization. We get same data processing as we mentioned in SVM and decision tree, and k-fold cross-validation is also applied in model to get a better result. After runing the regression and adujst the parameters accordingly, we find that the model behave better under C=10.0 and 'l2' penalty method.
 In logistic regression, we can get the results as followings:
-training accuracy  | testing accuracy |  accuracy_score | precision_score | recall_score | f1_score |
--------------------|------------------|-----------------|-----------------|--------------|----------|
-97.4%|53.2%|0.532|0.960|0.087|0.159
+training accuracy  | testing accuracy | precision_score | recall_score | f1_score |
+-------------------|------------------|-----------------|--------------|----------|
+97.4%|0.532|0.960|0.087|0.159
