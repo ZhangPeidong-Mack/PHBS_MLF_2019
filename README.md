@@ -36,7 +36,7 @@ Several stocks was delisted during the past 3 years, for those stocks which are 
 Then we import the package 'talib'. Using this package, we calculated several popular technical factors, including MOM stands for Momentum, RSI stands for Relative Strength Index, EMA stands for Exponential Moving Average, MACD stands for Moving Average Convergence / Divergence and ATR stands for Average true range. These factors will be used to build our models to predict trends of stock prices according to their factor loadings.
 
 Finally, we turn the daily frequency data into week frequency data. In the transformation, we view every 5 trading days as a week. Then we classify weeks into odd number weeks and even number weeks. For example, week 1, week 3 belong to the former class and week2, week 4 belong to the latter class. If stock return in one particular even number week, namely week 2t is negative, then we label corresponding Yt to be -1, and vise versa. Factors in week 2t-1 are viewed as Xt, we make pairs of (Xt, Yt) and our goal is to build models to predict Yt based on corresponding Xt.
-## Applying SVM model
+## Applying SVM Model
 The purpose of this part is to derive an SVM model to predict trends of stock prices using the factors stated above.
 
 We devide our data set into training set and test set. According to datetime, the former 80% belongs to the training set and the rest belongs to test set. We devide data according to datetime in order to avoid the influence of so called future information.
@@ -55,7 +55,7 @@ Confusion matrix
 --------|--------
 10286   | 9831
 
-## Decision Tree
+## Applying Decision Tree Model
 For Decision Tree method, data preprocessing is really simple. We don't need to standardize the data, what we need to do is just generate labels. We also use weekly frequency data, and the tag value is determined by the positive and negative excess return of the next week compared to the whole market. The factors we use in Decision Trees are MACD, RSI, EMA, MOM and ATR. And we looking at the results of the model from two prespectives: 
 ### Method 1
 We study the parameters for each stock seperately, and the most simple method is for each stock, we just divide the 145 samples into the training set and the testing set, and we can get the predicting acurracy.
@@ -87,7 +87,7 @@ If we set one parameter of the function, average as "weighted", which means we c
 |-----------------|--------------|
 0.514|0.526|
 
-## Applying logistic regression
+## Applying Logistic Regression Model
 For the method of logistic regression, we divide the data into training data(80%) and test data(20%）and do some standardization. We get same data processing as we mentioned in SVM and decision tree, and k-fold cross-validation is also applied in model to get a better result. After runing the regression and adujst the parameters accordingly, we find that the model behave better under C=10.0 and 'l2' penalty method.
 
 In logistic regression, we can get the results as followings:
@@ -100,7 +100,7 @@ Confusion matrix
 --------|--------
 29189   | 2773
 
-## KNN Model
+## Applying KNN Model
 In this part we use the KNN method to predict trends of stock prices. Compared to other classifiers, KNN is a relatively simple method because it has less parameters. It is also easy to understand because we only use the concept of ‘distance’. However, its drawback is also very obvious: too much computational cost. So we have to find a good balance between accuracy and computational cost. 
 
 To save computational cost, we use PCA method and set the component equivalent to 3. To get a higher accuracy, we put all samples together without considering time influence. We can do this because time influence will be alleviated when looking for the nearest neighbors. This viewpoint will also be verified after we get the accuracy, precision and recall.
@@ -113,7 +113,9 @@ Training Accuracy |  Test Accuracy
 
 We then use 10-fold cross-validation to estimate the model’s generalization performance. The CV accuracy scores are also high:
 
-CV accuracy scores: [0.79138299 0.78670867 0.78886932 0.78944516 0.7870063 0.78934354 0.78615947 0.78372062 0.78676919 0.78805636]
+                   |Fold 1 |Fold 2 |Fold 3 |Fold 4 |Fold 5 |Fold 6 |Fold 7 |Fold 8 |Fold 9 |Fold 10
+-------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------                   
+CV accuracy scores | 0.791 | 0.787 | 0.789 | 0.789 | 0.787 | 0.789 | 0.786 | 0.784 | 0.787 | 0.788
 
 CV accuracy: 0.788 +/- 0.002
 
@@ -130,3 +132,10 @@ Confusion matrix
 precision_score | recall_score | f1_score |
 ----------------|--------------|----------|
 0.807|0.731|0.767
+
+## Improvements in the future
+1. We only chose a few of the quantification factors in our research. We believe that as we add more factors in the future, the more predictive power our model will have.
+
+2. We did not consider differences between industries. Different firms in different industries may have quite different factor performances.
+
+3. We did no do well enough in data visualization, which will be definitely improved later.
