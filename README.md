@@ -35,9 +35,6 @@ Several stocks was delisted during the past 3 years, for those stocks which are 
 Then we import the package 'talib'. Using this package, we calculated several popular technical factors, including MOM stands for Momentum, RSI stands for Relative Strength Index, EMA stands for Exponential Moving Average, MACD stands for Moving Average Convergence / Divergence and ATR stands for Average true range. These factors will be used to build our models to predict trends of stock prices according to their factor loadings.
 
 Finally, we turn the daily frequency data into week frequency data. In the transformation, we view every 5 trading days as a week. Then we classify weeks into odd number weeks and even number weeks. For example, week 1, week 3 belong to the former class and week2, week 4 belong to the latter class. If stock return in one particular even number week, namely week 2t is negative, then we label corresponding Yt to be -1, and vise versa. Factors in week 2t-1 are viewed as Xt, we make pairs of (Xt, Yt) and our goal is to build models to predict Yt based on corresponding Xt.
-## TEST YU
-hello
-
 ## Applying SVM model
 The purpose of this part is to derive an SVM model to predict trends of stock prices using the factors stated above.
 
@@ -78,7 +75,7 @@ recall_score is:  0.35027678380279537
 f1_score is:  0.3906940251411418
 
 ![](image/pic_confusion_matrix.bmp)
-
+ding
 We can find out that more than half of the stocks didn't beat the market, one of the reasons is that we use simple averages instead of market capitalization weighted averages, so the accuracy score and precision score are underestimated. 
 
 If we set one parameter of the function, average as "weighted", which means we calculate metrics for each label, and find their average weighted by support, and can account for label imbalance, we find the results here: 
@@ -86,3 +83,7 @@ If we set one parameter of the function, average as "weighted", which means we c
 precision_score is:  0.5143724083513994
 
 recall_score is:  0.5259057730590577
+ad
+##Applying logistic regression
+For the method of logistic regression, we divide the data into training data(80%) and test data(20%）and do some standardization. We get same data processing as we mentioned in SVM and decision tree, and k-fold is also applied in model to get a better result. After runing the regression and adujst the parameters accordingly, we find that the model behave better under C=10.0 and 'l2' method.
+In logistic regression, we can get the results as followings:
