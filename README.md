@@ -59,7 +59,7 @@ training accuracy is:  96.86%
 
 testing accuracy is:  52.13%
 ### Method 2
-Logically speaking, we could not forecast the past with future data, so then we do another test, we use the samples in 2017 and 2018 as the training set, and the samples in 2019 as the testing set. And we are now interested in each week's results in 2019. 
+Logically speaking, we could not forecast the future with past data, so then we do another test, we use the samples in 2017 and 2018 as the training set, and the samples in 2019 as the testing set. And we are now interested in each week's results in 2019. 
 
 The results are listed below. the average testing accuracy is 52.59%, and each week's results are displayed:
 
