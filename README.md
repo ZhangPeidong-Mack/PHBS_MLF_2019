@@ -17,5 +17,5 @@ We use trading data of Shenzhen Stock Exchange and Shanghai Stock Exchange from 
 
 ##Test
 
-## 余海洋
+## 
 
