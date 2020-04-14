@@ -68,8 +68,8 @@ The results are listed below. the average testing accuracy is 52.59%, and each w
 
 We can also see the F1 score and the confusion matrix:
 
-| testing accuracy || precision_score | recall_score | f1_score |
-|------------------||-----------------|--------------|----------|
+ testing accuracy || precision_score | recall_score | f1_score |
+------------------||-----------------|--------------|----------|
 0.526|0.442|0.350|0.390|
 
 ![](image/pic_confusion_matrix.bmp)
