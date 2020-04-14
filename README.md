@@ -47,7 +47,14 @@ Then we tried to use linear kernel to build our model, but several problems occu
 
 To solve the problems stated above, we changed the training set. We randomly select 1000 sample points whose Y is labeled as '1' and 1000 another labeled as '-1', along with X corresponding to those Y we form a new 'training set'. We tested kernels like 'rbf' and 'linear', along with different parameters. We found that when using 'linear' kernel and set C=10.0, the model behaved fairly well. The result of it is listed as follows. We can see that the accuracy is about 57.9% on the test set and the precision and recall rate are all at a acceptable level. Also accuracy of 57.9% seems to be not to high, but if we employ a investing strategy based on this model, because of law of large numbers, we can expect the stratrgy to receive a nice return.
 
-![](https://github.com/PeterHuTHU/PHBS_MLF_2019/blob/master/3.png)
+training accuracy  | testing accuracy | precision_score | recall_score | f1_score |
+-------------------|------------------|-----------------|--------------|----------|
+0.588|0.579|0.58|0.58|0.58
+
+Confusion matrix 
+14608   | 7471
+--------|--------
+10286   | 9831
 
 ## Decision Tree
 For Decision Tree method, data preprocessing is really simple. We don't need to standardize the data, what we need to do is just generate labels. We also use weekly frequency data, and the tag value is determined by the positive and negative excess return of the next week compared to the whole market. The factors we use in Decision Trees are MACD, RSI, EMA, MOM and ATR. And we looking at the results of the model from two prespectives: 
