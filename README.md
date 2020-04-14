@@ -13,7 +13,7 @@ Zhong Lin(钟林) | 1801212992 | [zhong-lin-pku](https://github.com/zhong-lin-pk
 Our goal is to predict trends of stocks based on the historical data. We will apply classifiers such as SVM, decision tree, logistic regression and random forest to predict the trends of stocks and then compare advantages and disadvantages of each model. What's more, we can try to predict the trends of some specific stocks to test if our model is reliable in reality and to refine our model as well.
 
 ## Data Description
-We use trading data of Shenzhen Stock Exchange and Shanghai Stock Exchange from 2017-01-01 to 2019-12-31. Features include the opening price, closing price, highest price, lowest price, trading volume and turnover. The dataset is too large so we only upload part of it. Click [here](https://pan.baidu.com/s/1aaYOzaOtSxtKzsZU-PMNlg) with extraction code "nspy" if you want to see a complete version of our data.
+We use trading data obtained from JQ-Quant Database from 2017-01-01 to 2019-12-31. Features include the opening price, closing price, highest price, lowest price, trading volume and turnover. The dataset is too large so we only upload part of it. Click [here](https://pan.baidu.com/s/1aaYOzaOtSxtKzsZU-PMNlg) with extraction code "nspy" if you want to see a complete version of our data.
 
 
 ## Factor Introduction
@@ -100,3 +100,33 @@ Confusion matrix
 30956   | 116
 --------|--------
 29189   | 2773
+
+## KNN Model
+In this part we use the KNN method to predict trends of stock prices. Compared to other classifiers, KNN is a relatively simple method because it has less parameters. It is also easy to understand because we only use the concept of ‘distance’. However, its drawback is also very obvious: too much computational cost. So we have to find a good balance between accuracy and computational cost. 
+
+To save computational cost, we use PCA method and set the component equivalent to 3. To get a higher accuracy, we put all samples together without considering time influence. We can do this because time influence will be alleviated when looking for the nearest neighbors. This viewpoint will also be verified after we get the accuracy, precision and recall.
+
+We split the dataset by 7:3 and learn from 10 nearest neighbors. The results show that KNN performs really well:
+
+Training Accuracy: 0.819
+
+Test Accuracy: 0.786
+
+We then use 10-fold cross-validation to estimate the model’s generalization performance. The CV accuracy scores are also high:
+
+CV accuracy scores: [0.79138299 0.78670867 0.78886932 0.78944516 0.7870063 0.78934354 0.78615947 0.78372062 0.78676919 0.78805636]
+
+CV accuracy: 0.788 +/- 0.002
+
+The learning curve show that the gap between validation and training accuracy does not widen even when number of samples excess 150,000. From the validation curve we can also see that 10 nearest neighbors is a good choice if we want to save computational cost.
+![](image/ learning_curve.png)
+
+
+To see whether KNN will mistake an upgoing trend for a downward one, we calculate the confusion matrix. Based on the confusion matrix, we can calculate the precision, recall and F1-score. The F1-score shows a good balance between recall and precision, which means that the loss for mistaking trends can be partially avoided.
+Confusion matrix 
+55000   | 10656
+--------|--------
+16371   | 44497
+precision_score | recall_score | f1_score |
+-----------------|--------------|----------|
+0.807|0.731|0.767
