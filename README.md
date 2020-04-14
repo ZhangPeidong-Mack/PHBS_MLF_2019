@@ -89,4 +89,4 @@ For the method of logistic regression, we divide the data into training data(80%
 In logistic regression, we can get the results as followings:
 training accuracy  | testing accuracy | precision_score | recall_score | f1_score |
 -------------------|------------------|-----------------|--------------|----------|
-97.4%|0.532|0.960|0.087|0.159
+0.974|0.532|0.960|0.087|0.159
