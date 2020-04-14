@@ -92,3 +92,8 @@ In logistic regression, we can get the results as followings:
 training accuracy  | testing accuracy | precision_score | recall_score | f1_score |
 -------------------|------------------|-----------------|--------------|----------|
 0.974|0.532|0.960|0.087|0.159
+
+Confusion matrix 
+30956   | 116
+--------|--------
+29189   | 2773
