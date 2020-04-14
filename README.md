@@ -1,5 +1,5 @@
 # PHBS_MLF_2019
-MLF Team Project
+Predicting trends of stocks
 
 ## Team members:
 Name                   |     Student ID    |     GitHub ID
