@@ -79,7 +79,8 @@ We can also see the F1 score and the confusion matrix:
 0.526|0.442|0.350|0.390|
 
 ![](image/pic_confusion_matrix.bmp)
-ding
+
+
 We can find out that more than half of the stocks didn't beat the market, one of the reasons is that we use simple averages instead of market capitalization weighted averages, so the accuracy score and precision score are underestimated. 
 
 If we set one parameter of the function, average as "weighted", which means we calculate metrics for each label, and find their average weighted by support, and can account for label imbalance, we find the results here: 
