@@ -125,6 +125,7 @@ The learning curve show that the gap between validation and training accuracy do
 ![](image/validation_curve.png)
 
 To see whether KNN will mistake an upgoing trend for a downward one, we calculate the confusion matrix. Based on the confusion matrix, we can calculate the precision, recall and F1-score. The F1-score shows a good balance between recall and precision, which means that the loss for mistaking trends can be partially avoided.
+
 Confusion matrix 
 55000   | 10656
 --------|--------
