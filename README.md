@@ -138,6 +138,6 @@ precision_score | recall_score | f1_score |
 ## Improvements in the future
 1. We only chose a few of the quantification factors in our research. We believe that as we add more factors in the future, the more predictive power our model will have.
 
-2. We did not consider differences between industries. Different firms in different industries may have quite different factors performances.
+2. We did not consider differences between industries. Different firms in different industries may have quite different factors performance.
 
 3. We did not do well enough in data visualization, which will be definitely improved later.
