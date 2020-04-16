@@ -1,4 +1,4 @@
-# Predicting trends of stocks (Group 9)
+# Predicting trends of stock price based on the data from 2017-2019(Group 9)
 
 ## Team members:
 Name                   |     Student ID    |     GitHub ID
