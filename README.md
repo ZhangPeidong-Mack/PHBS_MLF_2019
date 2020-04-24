@@ -55,6 +55,16 @@ Confusion matrix
 --------|--------
 10286   | 9831
 
+In addition, we applied GridSearch to determine the best parameters for SVM model. We set parameters range = [0.0001, 0.001, 0.01, 0.1, 1.0, 10.0, 100.0, 1000.0] and kernel to be linear and rbf. The GridSearch found that when using rbf kernal and set C=100.0, gamma = 0.01, the SVM model can reach an accurancy of 0.6025. Furthermore, the result on test set is listed as follows:
+training accuracy  | testing accuracy | precision_score | recall_score | f1_score |
+-------------------|------------------|-----------------|--------------|----------|
+0.6025|0.610|0.61|0.61|0.61
+
+Confusion matrix 
+14900   | 7179
+--------|--------
+9273    | 10844
+
 ## Applying Decision Tree Model
 For Decision Tree method, data preprocessing is really simple. We don't need to standardize the data, what we need to do is just generate labels. We also use weekly frequency data, and the tag value is determined by the positive and negative excess return of the next week compared to the whole market. The factors we use in Decision Trees are MACD, RSI, EMA, MOM and ATR. And we looking at the results of the model from two prespectives: 
 ### Method 1
