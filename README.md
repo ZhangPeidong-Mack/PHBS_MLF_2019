@@ -114,9 +114,9 @@ Confusion matrix
 ## Applying KNN Model
 In this part we use the KNN method to predict trends of stock prices. Compared to other classifiers, KNN is a relatively simple method because it has less parameters. It is also easy to understand because we only use the concept of ‘distance’. However, its drawback is also very obvious: too much computational cost. So we have to find a good balance between accuracy and computational cost. 
 
-To save computational cost, we use PCA method and set the component equivalent to 3. Just like in the SVM part, we randomly choose 1000 positive and 1000 negative data points as our dataset and split the dataset by 8:2. We learn from 10 nearest neighbors, and the results show that KNN performs well:
+To save computational cost, we use PCA method and set the component equivalent to 3. Just like in the SVM part, we randomly choose 1000 positive and 1000 negative data points as our new training set. We learn from 10 nearest neighbors, and the results show that KNN performs well:
 
-Training Accuracy |  Test Accuracy
+training Accuracy |  testing Accuracy
 ------------------|----------------
 0.689| 0.559
 
@@ -124,7 +124,7 @@ The learning curve show that the gap between validation and training accuracy do
 ![](image/learning_curve.png)
 ![](image/validation_curve.png)
 
-To see whether KNN will mistake an upgoing trend for a downward one, we calculate the confusion matrix. Based on the confusion matrix, we can calculate the precision, recall and F1-score. The F1-score shows a good balance between recall and precision, which means that the loss for mistaking trends can be partially avoided.
+To see the proportion for KNN to mistake an upgoing trend for a downward one, we calculate the confusion matrix. Based on the confusion matrix, we can calculate the precision, recall and F1-score. The recall score is lower than random guess, but this will not cause investors' direct loss because it mistakes an upgoing trend for a downward one and investors do not invest in these stocks.
 
 Confusion matrix 
 14532   | 7547
@@ -135,7 +135,13 @@ precision_score | recall_score | f1_score |
 ----------------|--------------|----------|
 0.545|0.449|0.493
 
-We then use GridSearch to check whether it is worthy of changing the number of neighbors.
+We then use GridSearch to check whether it is worthy of changing the number of neighbors. We set the range of numbers of neighbors to be \[5,20\] and the result shows that 14 gets the best score. The accuracy, precision, recall and F1-score are as follows:
+
+training accuracy  | testing accuracy | precision_score | recall_score | f1_score |
+-------------------|------------------|-----------------|--------------|----------|
+0.664|0.560|0.546|0.459|0.499
+
+If we learn from 14 neighbors instead of 10 neighbors, both testing accuracy and precision increase by 0.1 pct, which is very small amount. The recall increases by 1 pct, but still lower than random guess. Besides, the computional cost increases by a large amount when we train a larger dataset. Therefore, 10 neighbor is a good choice if we want to have a balance between accuracy and computional cost.
 
 ## Improvements in the future
 1. We only chose a few of the quantification factors in our research. We believe that as we add more factors in the future, the more predictive power our model will have.
