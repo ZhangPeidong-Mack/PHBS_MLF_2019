@@ -55,7 +55,7 @@ Confusion matrix
 --------|--------
 10286   | 9831
 
-In addition, we applied GridSearch to determine the best parameters for SVM model. We set parameters range = [0.0001, 0.001, 0.01, 0.1, 1.0, 10.0, 100.0, 1000.0] and kernel to be linear and rbf. The GridSearch found that when using rbf kernal and set C=100.0, gamma = 0.01, the SVM model can reach an accurancy of 0.6025. Furthermore, the result on test set is listed as follows:
+In addition, we applied GridSearch to determine the best parameters for SVM model. We set parameters range = [0.0001, 0.001, 0.01, 0.1, 1.0, 10.0, 100.0, 1000.0] and kernel to be linear and rbf. The GridSearch found that when using rbf kernel and set C=100.0, gamma = 0.01, the SVM model can reach an accurancy of 0.6025. Furthermore, the result on test set is listed as follows:
 training accuracy  | testing accuracy | precision_score | recall_score | f1_score |
 -------------------|------------------|-----------------|--------------|----------|
 0.6025|0.610|0.61|0.61|0.61
@@ -114,36 +114,28 @@ Confusion matrix
 ## Applying KNN Model
 In this part we use the KNN method to predict trends of stock prices. Compared to other classifiers, KNN is a relatively simple method because it has less parameters. It is also easy to understand because we only use the concept of ‘distance’. However, its drawback is also very obvious: too much computational cost. So we have to find a good balance between accuracy and computational cost. 
 
-To save computational cost, we use PCA method and set the component equivalent to 3. To get a higher accuracy, we put all samples together without considering time influence. We can do this because time influence will be alleviated when looking for the nearest neighbors. This viewpoint will also be verified after we get the accuracy, precision and recall.
-
-We split the dataset by 7:3 and learn from 10 nearest neighbors. The results show that KNN performs really well:
+To save computational cost, we use PCA method and set the component equivalent to 3. Just like in the SVM part, we randomly choose 1000 positive and 1000 negative data points as our dataset and split the dataset by 8:2. We learn from 10 nearest neighbors, and the results show that KNN performs well:
 
 Training Accuracy |  Test Accuracy
 ------------------|----------------
-0.819| 0.786
+0.689| 0.559
 
-We then use 10-fold cross-validation to estimate the model’s generalization performance. The CV accuracy scores are also high:
-
-| Fold             |Fold 1 |Fold 2 |Fold 3 |Fold 4 |Fold 5 |Fold 6 |Fold 7 |Fold 8 |Fold 9 |Fold 10
-|------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------                   
-CV accuracy scores | 0.791 | 0.787 | 0.789 | 0.789 | 0.787 | 0.789 | 0.786 | 0.784 | 0.787 | 0.788
-
-CV accuracy: 0.788 +/- 0.002
-
-The learning curve show that the gap between validation and training accuracy does not widen even when number of samples excess 150,000. From the validation curve we can also see that 10 nearest neighbors is a good choice if we want to save computational cost.
+The learning curve show that the gap between validation and training accuracy does not widen when the number of samples becomes larger. From the validation curve we can also see that 10 nearest neighbors is a good choice if we want to save computational cost and alleviate overfitting.
 ![](image/learning_curve.png)
 ![](image/validation_curve.png)
 
 To see whether KNN will mistake an upgoing trend for a downward one, we calculate the confusion matrix. Based on the confusion matrix, we can calculate the precision, recall and F1-score. The F1-score shows a good balance between recall and precision, which means that the loss for mistaking trends can be partially avoided.
 
 Confusion matrix 
-55000   | 10656
+14532   | 7547
 --------|--------
-16371   | 44497
+11079   | 9038
 
 precision_score | recall_score | f1_score |
 ----------------|--------------|----------|
-0.807|0.731|0.767
+0.545|0.449|0.493
+
+We then use GridSearch to check whether it is worthy of changing the number of neighbors.
 
 ## Improvements in the future
 1. We only chose a few of the quantification factors in our research. We believe that as we add more factors in the future, the more predictive power our model will have.
