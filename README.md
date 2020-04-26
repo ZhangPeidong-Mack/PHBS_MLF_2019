@@ -143,7 +143,7 @@ From the summary table of different prediction model above, we can see that the 
 
 2. We did not consider differences between industries. Different firms in different industries may have quite different factors performance.
 
-3. We did not do well enough in data visualization, which will be definitely improved later.
+3. The evaluation indexes such as accuracy and f1 score are not perfect enough, more evaluation indexes such as back-testing results are needed to measure the effectiveness of the algorithm
 ## Donations to the Project
 Name                   |     Student ID    |    Donations/The part that be resopnsible for
 -----------------------|-------------------|---------------------------------
