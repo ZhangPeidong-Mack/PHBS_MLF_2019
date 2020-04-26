@@ -36,6 +36,7 @@ Several stocks was delisted during the past 3 years, for those stocks which are 
 Then we import the package 'talib'. Using this package, we calculated several popular technical factors, including MOM stands for Momentum, RSI stands for Relative Strength Index, EMA stands for Exponential Moving Average, MACD stands for Moving Average Convergence / Divergence and ATR stands for Average true range. These factors will be used to build our models to predict trends of stock prices according to their factor loadings.
 
 Finally, we turn the daily frequency data into week frequency data. In the transformation, we view every 5 trading days as a week. Then we classify weeks into odd number weeks and even number weeks. For example, week 1, week 3 belong to the former class and week2, week 4 belong to the latter class. If stock return in one particular even number week, namely week 2t is negative, then we label corresponding Yt to be -1, and vise versa. Factors in week 2t-1 are viewed as Xt, we make pairs of (Xt, Yt) and our goal is to build models to predict Yt based on corresponding Xt.
+
 ## Applying SVM Model
 The purpose of this part is to derive an SVM model to predict trends of stock prices using the factors stated above.
 
@@ -51,6 +52,9 @@ training accuracy  | testing accuracy | precision_score | recall_score | f1_scor
 0.588|0.579|0.58|0.58|0.58
 
 Confusion matrix 
+
+<div align=center><img width='300' src='image/con_matrix_svm1.png'/></div>
+
 14608   | 7471
 --------|--------
 10286   | 9831
@@ -61,7 +65,9 @@ training accuracy  | testing accuracy | precision_score | recall_score | f1_scor
 0.6025|0.610|0.61|0.61|0.61
 
 Confusion matrix 
-![](image/con_matrix_svm2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300)
+14900   | 7179
+--------|--------
+9273    | 10844
 
 ## Applying Decision Tree Model
 For Decision Tree method, data preprocessing is really simple. We don't need to standardize the data, what we need to do is just generate labels. We also use weekly frequency data, and the tag value is determined by the positive and negative return of the next week. The factors we use in Decision Trees are MACD, RSI, EMA, MOM and ATR. And we looking at the results of the model from two prespectives: 
@@ -91,7 +97,9 @@ training accuracy  | testing accuracy | precision_score | recall_score | f1_scor
 0.974|0.532|0.960|0.087|0.159
 
 Confusion matrix 
-![](image/con_matrix_lr.png)
+30956   | 116
+--------|--------
+29189   | 2773
 
 ## Applying KNN Model
 In this part we use the KNN method to predict trends of stock prices. Compared to other classifiers, KNN is a relatively simple method because it has less parameters. It is also easy to understand because we only use the concept of ‘distance’. However, its drawback is also very obvious: too much computational cost. So we have to find a good balance between accuracy and computational cost. 
@@ -124,14 +132,6 @@ training accuracy  | testing accuracy | precision_score | recall_score | f1_scor
 0.664|0.560|0.546|0.459|0.499
 
 If we learn from 14 neighbors instead of 10 neighbors, both testing accuracy and precision increase by 0.1 pct, which is very small amount. The recall increases by 1 pct, but still lower than random guess. Besides, the computional cost increases by a large amount when we train a larger dataset. Therefore, 10 neighbor is a good choice if we want to have a balance between accuracy and computional cost.
-
-
-
-## Summary Table
-|--|training accuracy|testing accuracy| precision_score| recall_score| f1_score|
--------|-----------------|-----------------|--------------|----------|
-Accuracy(train)|0.56|0.56|0.56|0.55|
-
 
 ## Improvements in the future
 1. We only chose a few of the quantification factors in our research. We believe that as we add more factors in the future, the more predictive power our model will have.
