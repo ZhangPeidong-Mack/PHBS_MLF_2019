@@ -83,12 +83,12 @@ Confusion matrix
 11555   | 8562
 
 ## Applying Logistic Regression Model
-For the method of logistic regression, we divide the data into training data(80%) and test data(20%）and do some standardization. We get same data processing as we mentioned in SVM and decision tree, and k-fold cross-validation is also applied in model to get a better result. After runing the regression and adujst the parameters accordingly, we find that the model behave better under C=10.0 and 'l2' penalty method.
+For the method of logistic regression, we divide the data into training data(80%) and test data(20%）and do some standardization. We get same data processing as we mentioned in SVM and decision tree, and k-fold cross-validation is also applied in model to get a better result. Under GridSearchCV method, we set parameter "penaltys = ['l1','l2'],Cs = [0.0001, 0.001, 0.01, 0.1, 1.0, 10.0, 100.0, 1000.0].After runing the regression and adujst the parameters accordingly, we find that the model behave better under C=1000.0 and 'l2' penalty method.
 
 In logistic regression, we can get the results as followings:
 training accuracy  | testing accuracy | precision_score | recall_score | f1_score |
 -------------------|------------------|-----------------|--------------|----------|
-0。556|0.561|0.960|0.087|0.159
+0.556|0.561|0.55|0.61|0.59
 
 Confusion matrix 
 ![](image/con_matrix_lr.png)
@@ -127,21 +127,26 @@ If we learn from 14 neighbors instead of 10 neighbors, both testing accuracy and
 
 
 
-## Summary Table and Methods Comparision
+## Summary Table and Methods Comparison
 Models|SVM|RF| Logistics| KNN|
 -------|-----------------|-----------------|--------------|----------|
-Accuracy(train)|0.61| 0.559|0.556|0.664|
-Accuracy(test)|0.61 |0.558|0.561|0.560|
-Precision|0.62|0.56 |0.58|0.55|
-Recall|0.67|0.56 |0.61|0.46| 
-f1_score|0.64|0.55 | 0.59|0.50|
+Accuracy(train)|0.6025| 0.559|0.556|0.664|
+Accuracy(test)|0.611|0.558|0.561|0.560|
+Precision|0.61|0.56 |0.56|0.55|
+Recall|0.61|0.56 |0.56|0.46| 
+f1_score|0.61|0.55 | 0.56|0.50|
 Parameters|{'svc__C': 1000.0, 'svc__gamma': 0.01, 'svc__kernel': 'rbf'} |{'criterion': 'entropy', 'max_depth': 4, 'n_estimators': 50} |{'logisticregression__C': 1000.0, 'logisticregression__penalty': 'l2'}|{'kneighborsclassifier__n_neighbors': 14} |
-
-
-
+From the summary table of different prediction model above, we can see that the SVM method performs best among the different models from the perspective of precision score, recall score and f1 score. In details, we know that the random forest and logistics regrssion perform second best and the KNN method does not do well in stocks price prediction. Hence, if we want to do more in stock price prediction, we should pay more attention to SVM method to get a relatively good performance.
 ## Improvements in the future
 1. We only chose a few of the quantification factors in our research. We believe that as we add more factors in the future, the more predictive power our model will have.
 
 2. We did not consider differences between industries. Different firms in different industries may have quite different factors performance.
 
 3. We did not do well enough in data visualization, which will be definitely improved later.
+## Donations to the Project
+Name                   |     Student ID    |    Donations/The part that be resopnsible for
+-----------------------|-------------------|---------------------------------
+Hu Tianrui(胡天锐) | 1901212587 | 
+Yu Haiyang(余海洋) | 1901212663 | Apply logistics regression; Project presentation; Summary table and methods comparison part; Some format adjustment
+Zhang Peidong(张培栋) | 1901212671 | 
+Zhong Lin(钟林) | 1801212992 | 
