@@ -48,7 +48,7 @@ To solve the problems stated above, we changed the training set. We randomly sel
 
 training accuracy  | testing accuracy | precision_score | recall_score | f1_score |
 -------------------|------------------|-----------------|--------------|----------|
-0.588|0.579|0.58|0.58|0.58
+0.588|0.579|0.58|0.61|0.59
 
 Confusion matrix 
 14608   | 7471
@@ -88,7 +88,7 @@ For the method of logistic regression, we divide the data into training data(80%
 In logistic regression, we can get the results as followings:
 training accuracy  | testing accuracy | precision_score | recall_score | f1_score |
 -------------------|------------------|-----------------|--------------|----------|
-0.974|0.532|0.960|0.087|0.159
+0。556|0.561|0.960|0.087|0.159
 
 Confusion matrix 
 ![](image/con_matrix_lr.png)
@@ -127,7 +127,7 @@ If we learn from 14 neighbors instead of 10 neighbors, both testing accuracy and
 
 
 
-## Summary Table
+## Summary Table and Methods Comparision
 Models|SVM|RF| Logistics| KNN|
 -------|-----------------|-----------------|--------------|----------|
 Accuracy(train)|0.61| 0.56|0.556|0.664|
