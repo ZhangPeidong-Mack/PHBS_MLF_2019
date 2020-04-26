@@ -150,4 +150,4 @@ Name                   |     Student ID    |    Donations/The part that be resop
 Hu Tianrui(胡天锐) | 1901212587 | 
 Yu Haiyang(余海洋) | 1901212663 | Apply logistics regression; Project presentation; Summary table and methods comparison part; Some format adjustment
 Zhang Peidong(张培栋) | 1901212671 | 
-Zhong Lin(钟林) | 1801212992 | 
+Zhong Lin(钟林) | 1801212992 | Apply random forest; Summary factor introduction
