@@ -18,7 +18,7 @@ We use trading data obtained from JQ-Quant Database from 2017-01-01 to 2019-12-3
 ## Factor Introduction
 We use some quantification factors: 
 
-<img src='image/pic_factors.bmp' align='center'/>
+<div align='center'><img src='image/pic_factors.bmp'/></div>
 
 Factors |                                           Meaning                                                                          |
 --------|----------------------------------------------------------------------------------------------------------------------------|
@@ -61,7 +61,8 @@ training accuracy  | testing accuracy | precision_score | recall_score | f1_scor
 0.6025|0.610|0.61|0.61|0.61
 
 Confusion matrix 
-![](image/con_matrix_svm2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300)
+
+<div align='center'><img width='300'src='con_matrix_svm2.png'/></div>
 
 ## Applying Decision Tree Model
 For Decision Tree method, data preprocessing is really simple. We don't need to standardize the data, what we need to do is just generate labels. We also use weekly frequency data, and the tag value is determined by the positive and negative return of the next week. The factors we use in Decision Trees are MACD, RSI, EMA, MOM and ATR. And we looking at the results of the model from two prespectives: 
@@ -78,6 +79,9 @@ We can also see the F1 score and the confusion matrix:
 0.56|0.56|0.56|0.55|
 
 Confusion matrix 
+
+<div align='center'><img width='300'src='con_matrix_rf2.png'/></div>
+
 15123   | 6956
 --------|--------
 11555   | 8562
@@ -91,7 +95,8 @@ training accuracy  | testing accuracy | precision_score | recall_score | f1_scor
 0.556|0.561|0.55|0.61|0.59
 
 Confusion matrix 
-![](image/con_matrix_lr.png)
+
+<div align='center'><img width='300'src='con_matrix_lr.png'/></div>
 
 ## Applying KNN Model
 In this part we use the KNN method to predict trends of stock prices. Compared to other classifiers, KNN is a relatively simple method because it has less parameters. It is also easy to understand because we only use the concept of ‘distance’. However, its drawback is also very obvious: too much computational cost. So we have to find a good balance between accuracy and computational cost. 
@@ -103,12 +108,17 @@ training Accuracy |  testing Accuracy
 0.689| 0.559
 
 The learning curve show that the gap between validation and training accuracy does not widen when the number of samples becomes larger. From the validation curve we can also see that 10 nearest neighbors is a good choice if we want to save computational cost and alleviate overfitting.
-![](image/learning_curve.png)
-![](image/validation_curve.png)
+
+<div align='center'><img width='500'src='learning_curve.png'/></div>
+
+<div align='center'><img width='500'src='validation_curve.png'/></div>
 
 To see the proportion for KNN to mistake an upgoing trend for a downward one, we calculate the confusion matrix. Based on the confusion matrix, we can calculate the precision, recall and F1-score. The recall score is lower than random guess, but this will not cause investors' direct loss because it mistakes an upgoing trend for a downward one and investors do not invest in these stocks.
 
 Confusion matrix 
+
+<div align='center'><img width='300'src='con_matrix.png'/></div>
+
 14532   | 7547
 --------|--------
 11079   | 9038
