@@ -71,14 +71,18 @@ For Decision Tree method, data preprocessing is really simple. We don't need to 
 ### Results
 Logically speaking, we could not forecast the future with past data, we use the first 80% of the data as the training set, and the last 20% percent of the data as the testing set.  
 
-The results are listed below. the average testing accuracy is 56%
+The results are listed below. the average testing accuracy is 56.13%
 
 We can also see the F1 score and the confusion matrix:
 
  testing accuracy | precision_score | recall_score | f1_score |
 ------------------|-----------------|--------------|----------|
-0.56|0.56|0.56|0.56|
+0.56|0.56|0.56|0.55|
 
+Confusion matrix 
+15123   | 6956
+--------|--------
+11555   | 8562
 
 ## Applying Logistic Regression Model
 For the method of logistic regression, we divide the data into training data(80%) and test data(20%）and do some standardization. We get same data processing as we mentioned in SVM and decision tree, and k-fold cross-validation is also applied in model to get a better result. After runing the regression and adujst the parameters accordingly, we find that the model behave better under C=10.0 and 'l2' penalty method.
