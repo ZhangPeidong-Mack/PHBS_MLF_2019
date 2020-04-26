@@ -130,8 +130,8 @@ If we learn from 14 neighbors instead of 10 neighbors, both testing accuracy and
 ## Summary Table and Methods Comparision
 Models|SVM|RF| Logistics| KNN|
 -------|-----------------|-----------------|--------------|----------|
-Accuracy(train)|0.61| 0.56|0.556|0.664|
-Accuracy(test)|0.61 |0.56|0.561|0.560|
+Accuracy(train)|0.61| 0.559|0.556|0.664|
+Accuracy(test)|0.61 |0.558|0.561|0.560|
 Precision|0.62|0.56 |0.58|0.55|
 Recall|0.67|0.56 |0.61|0.46| 
 f1_score|0.64|0.55 | 0.59|0.50|
