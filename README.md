@@ -128,7 +128,7 @@ If we learn from 14 neighbors instead of 10 neighbors, both testing accuracy and
 
 
 ## Summary Table
-       |testing accuracy | precision_score | recall_score | f1_score |
+ training accuracy|testing accuracy| precision_score| recall_score| f1_score|
 -------|-----------------|-----------------|--------------|----------|
 Accuracy(train)|0.56|0.56|0.56|0.55|
 
