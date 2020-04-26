@@ -66,37 +66,19 @@ Confusion matrix
 9273    | 10844
 
 ## Applying Decision Tree Model
-For Decision Tree method, data preprocessing is really simple. We don't need to standardize the data, what we need to do is just generate labels. We also use weekly frequency data, and the tag value is determined by the positive and negative excess return of the next week compared to the whole market. The factors we use in Decision Trees are MACD, RSI, EMA, MOM and ATR. And we looking at the results of the model from two prespectives: 
-### Method 1
-We study the parameters for each stock seperately, and the most simple method is for each stock, we just divide the 145 samples into the training set and the testing set, and we can get the predicting acurracy.
-And the average results for all stocks are listed here: 
+For Decision Tree method, data preprocessing is really simple. We don't need to standardize the data, what we need to do is just generate labels. We also use weekly frequency data, and the tag value is determined by the positive and negative return of the next week. The factors we use in Decision Trees are MACD, RSI, EMA, MOM and ATR. And we looking at the results of the model from two prespectives: 
 
-training accuracy  | testing accuracy |
--------------------|------------------|
-0.969|0.521|
+### Results
+Logically speaking, we could not forecast the future with past data, we use the first 80% of the data as the training set, and the last 20% percent of the data as the testing set.  
 
-### Method 2
-Logically speaking, we could not forecast the future with past data, so then we do another test, we use the samples in 2017 and 2018 as the training set, and the samples in 2019 as the testing set. And we are now interested in each week's results in 2019. 
-
-The results are listed below. the average testing accuracy is 52.59%, and each week's results are displayed:
-
-![](image/pic_decision_tree.bmp)
+The results are listed below. the average testing accuracy is 56%
 
 We can also see the F1 score and the confusion matrix:
 
  testing accuracy | precision_score | recall_score | f1_score |
 ------------------|-----------------|--------------|----------|
-0.526|0.442|0.350|0.390|
+0.56|0.56|0.56|0.56|
 
-![](image/pic_confusion_matrix.bmp)
-
-
-We can find out that more than half of the stocks didn't beat the market, one of the reasons is that we use simple averages instead of market capitalization weighted averages, so the accuracy score and precision score are underestimated. 
-
-If we set one parameter of the function, average as "weighted", which means we calculate metrics for each label, and find their average weighted by support, and can account for label imbalance, we find the results here: 
-| precision_score | recall_score |
-|-----------------|--------------|
-0.514|0.526|
 
 ## Applying Logistic Regression Model
 For the method of logistic regression, we divide the data into training data(80%) and test data(20%）and do some standardization. We get same data processing as we mentioned in SVM and decision tree, and k-fold cross-validation is also applied in model to get a better result. After runing the regression and adujst the parameters accordingly, we find that the model behave better under C=10.0 and 'l2' penalty method.
