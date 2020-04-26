@@ -136,6 +136,7 @@ Precision|0.61|0.56 |0.56|0.55|
 Recall|0.61|0.56 |0.56|0.46| 
 f1_score|0.61|0.55 | 0.56|0.50|
 Parameters|{'svc__C': 1000.0, 'svc__gamma': 0.01, 'svc__kernel': 'rbf'} |{'criterion': 'entropy', 'max_depth': 4, 'n_estimators': 50} |{'logisticregression__C': 1000.0, 'logisticregression__penalty': 'l2'}|{'kneighborsclassifier__n_neighbors': 14} |
+
 From the summary table of different prediction model above, we can see that the SVM method performs best among the different models from the perspective of precision score, recall score and f1 score. In details, we know that the random forest and logistics regrssion perform second best and the KNN method does not do well in stocks price prediction. Hence, if we want to do more in stock price prediction, we should pay more attention to SVM method to get a relatively good performance.
 ## Improvements in the future
 1. We only chose a few of the quantification factors in our research. We believe that as we add more factors in the future, the more predictive power our model will have.
