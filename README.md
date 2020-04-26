@@ -51,9 +51,8 @@ training accuracy  | testing accuracy | precision_score | recall_score | f1_scor
 0.588|0.579|0.58|0.61|0.59
 
 Confusion matrix 
-14608   | 7471
---------|--------
-10286   | 9831
+
+<div align='center'><img width='300'src='image/con_matrix_svm1.png'/></div>
 
 In addition, we applied GridSearch to determine the best parameters for SVM model. We set parameters range = [0.0001, 0.001, 0.01, 0.1, 1.0, 10.0, 100.0, 1000.0] and kernel to be linear and rbf. The GridSearch found that when using rbf kernel and set C=100.0, gamma = 0.01, the SVM model can reach an accurancy of 0.6025. Furthermore, the result on test set is listed as follows:
 training accuracy  | testing accuracy | precision_score | recall_score | f1_score |
@@ -81,10 +80,6 @@ We can also see the F1 score and the confusion matrix:
 Confusion matrix 
 
 <div align='center'><img width='300'src='image/con_matrix_rf2.png'/></div>
-
-15123   | 6956
---------|--------
-11555   | 8562
 
 ## Applying Logistic Regression Model
 For the method of logistic regression, we divide the data into training data(80%) and test data(20%）and do some standardization. We get same data processing as we mentioned in SVM and decision tree, and k-fold cross-validation is also applied in model to get a better result. Under GridSearchCV method, we set parameter "penaltys = ['l1','l2'],Cs = [0.0001, 0.001, 0.01, 0.1, 1.0, 10.0, 100.0, 1000.0].After runing the regression and adujst the parameters accordingly, we find that the model behave better under C=1000.0 and 'l2' penalty method.
@@ -118,10 +113,6 @@ To see the proportion for KNN to mistake an upgoing trend for a downward one, we
 Confusion matrix 
 
 <div align='center'><img width='300'src='image/con_matrix.png'/></div>
-
-14532   | 7547
---------|--------
-11079   | 9038
 
 precision_score | recall_score | f1_score |
 ----------------|--------------|----------|
@@ -158,6 +149,6 @@ From the summary table of different prediction model above, we can see that the 
 Name                   |     Student ID    |    Donations/The part that be resopnsible for
 -----------------------|-------------------|---------------------------------
 Hu Tianrui(胡天锐) | 1901212587 | Data preprocessing; Apply SVM method; Corresponding part in .md file
-Yu Haiyang(余海洋) | 1901212663 | Apply logistics regression; Project presentation; Summary table and methods comparison part; Some format adjustment
-Zhang Peidong(张培栋) | 1901212671 | 
-Zhong Lin(钟林) | 1801212992 | Apply random forest; Summary factor introduction
+Yu Haiyang(余海洋) | 1901212663 | Apply logistics regression; Project presentation; Summarize table and methods comparison part; Some format adjustment
+Zhang Peidong(张培栋) | 1901212671 | Apply KNN method; Visualization for all methods; Summarize improvements to be made; Sort pictures and codes
+Zhong Lin(钟林) | 1801212992 | Apply random forest; Summarize factor introduction
