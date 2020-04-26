@@ -125,6 +125,14 @@ training accuracy  | testing accuracy | precision_score | recall_score | f1_scor
 
 If we learn from 14 neighbors instead of 10 neighbors, both testing accuracy and precision increase by 0.1 pct, which is very small amount. The recall increases by 1 pct, but still lower than random guess. Besides, the computional cost increases by a large amount when we train a larger dataset. Therefore, 10 neighbor is a good choice if we want to have a balance between accuracy and computional cost.
 
+
+
+## Summary Table
+       |testing accuracy | precision_score | recall_score | f1_score |
+-------|-----------------|-----------------|--------------|----------|
+Accuracy(train)|0.56|0.56|0.56|0.55|
+
+
 ## Improvements in the future
 1. We only chose a few of the quantification factors in our research. We believe that as we add more factors in the future, the more predictive power our model will have.
 
