@@ -18,7 +18,7 @@ We use trading data obtained from JQ-Quant Database from 2017-01-01 to 2019-12-3
 ## Factor Introduction
 We use some quantification factors: 
 
-<img src='image/pic_factors.bmp' align='center'/>
+<div align=center><img src='image/pic_factors.bmp'/></div>
 
 Factors |                                           Meaning                                                                          |
 --------|----------------------------------------------------------------------------------------------------------------------------|
@@ -65,6 +65,9 @@ training accuracy  | testing accuracy | precision_score | recall_score | f1_scor
 0.6025|0.610|0.61|0.61|0.61
 
 Confusion matrix 
+
+<div align=center><img width='300' src='image/con_matrix_svm2.png'/></div>
+
 14900   | 7179
 --------|--------
 9273    | 10844
@@ -84,6 +87,9 @@ We can also see the F1 score and the confusion matrix:
 0.56|0.56|0.56|0.55|
 
 Confusion matrix 
+
+<div align=center><img width='300' src='image/con_matrix_rf2.png'/></div>
+
 15123   | 6956
 --------|--------
 11555   | 8562
@@ -111,12 +117,17 @@ training Accuracy |  testing Accuracy
 0.689| 0.559
 
 The learning curve show that the gap between validation and training accuracy does not widen when the number of samples becomes larger. From the validation curve we can also see that 10 nearest neighbors is a good choice if we want to save computational cost and alleviate overfitting.
-![](image/learning_curve.png)
-![](image/validation_curve.png)
+
+<div align=center><img width='500' src='image/learning_curve.png'/></div>
+
+<div align=center><img width='500' src='image/validation_curve.png'/></div>
 
 To see the proportion for KNN to mistake an upgoing trend for a downward one, we calculate the confusion matrix. Based on the confusion matrix, we can calculate the precision, recall and F1-score. The recall score is lower than random guess, but this will not cause investors' direct loss because it mistakes an upgoing trend for a downward one and investors do not invest in these stocks.
 
 Confusion matrix 
+
+<div align=center><img width='300' src='image/con_matrix.png'/></div>
+
 14532   | 7547
 --------|--------
 11079   | 9038
