@@ -150,5 +150,5 @@ Name                   |     Student ID    |    Donations/The part that be resop
 -----------------------|-------------------|---------------------------------
 Hu Tianrui(胡天锐) | 1901212587 | Data preprocessing; Apply SVM method; Corresponding part in .md file
 Yu Haiyang(余海洋) | 1901212663 | Apply logistics regression; Project presentation; Summarize table and methods comparison part; Some format adjustment
-Zhang Peidong(张培栋) | 1901212671 | Apply KNN method; Visualization for all methods; Summarize improvements to be made; Sort pictures and codes
+Zhang Peidong(张培栋) | 1901212671 | Apply KNN method; Visualization for all methods; Summarize project goal, data description and improvements to be made; Sort figures and codes
 Zhong Lin(钟林) | 1801212992 | Apply random forest; Summarize factor introduction
