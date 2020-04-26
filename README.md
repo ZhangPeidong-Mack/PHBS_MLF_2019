@@ -18,7 +18,7 @@ We use trading data obtained from JQ-Quant Database from 2017-01-01 to 2019-12-3
 ## Factor Introduction
 We use some quantification factors: 
 
-<div align=center><img src='image/pic_factors.bmp'/></div>
+<img src='image/pic_factors.bmp' align='center'/>
 
 Factors |                                           Meaning                                                                          |
 --------|----------------------------------------------------------------------------------------------------------------------------|
@@ -36,7 +36,6 @@ Several stocks was delisted during the past 3 years, for those stocks which are 
 Then we import the package 'talib'. Using this package, we calculated several popular technical factors, including MOM stands for Momentum, RSI stands for Relative Strength Index, EMA stands for Exponential Moving Average, MACD stands for Moving Average Convergence / Divergence and ATR stands for Average true range. These factors will be used to build our models to predict trends of stock prices according to their factor loadings.
 
 Finally, we turn the daily frequency data into week frequency data. In the transformation, we view every 5 trading days as a week. Then we classify weeks into odd number weeks and even number weeks. For example, week 1, week 3 belong to the former class and week2, week 4 belong to the latter class. If stock return in one particular even number week, namely week 2t is negative, then we label corresponding Yt to be -1, and vise versa. Factors in week 2t-1 are viewed as Xt, we make pairs of (Xt, Yt) and our goal is to build models to predict Yt based on corresponding Xt.
-
 ## Applying SVM Model
 The purpose of this part is to derive an SVM model to predict trends of stock prices using the factors stated above.
 
@@ -52,8 +51,9 @@ training accuracy  | testing accuracy | precision_score | recall_score | f1_scor
 0.588|0.579|0.58|0.58|0.58
 
 Confusion matrix 
-
-<div align=center><img width='300' src='image/con_matrix_svm1.png'/></div>
+14608   | 7471
+--------|--------
+10286   | 9831
 
 In addition, we applied GridSearch to determine the best parameters for SVM model. We set parameters range = [0.0001, 0.001, 0.01, 0.1, 1.0, 10.0, 100.0, 1000.0] and kernel to be linear and rbf. The GridSearch found that when using rbf kernel and set C=100.0, gamma = 0.01, the SVM model can reach an accurancy of 0.6025. Furthermore, the result on test set is listed as follows:
 training accuracy  | testing accuracy | precision_score | recall_score | f1_score |
@@ -61,8 +61,7 @@ training accuracy  | testing accuracy | precision_score | recall_score | f1_scor
 0.6025|0.610|0.61|0.61|0.61
 
 Confusion matrix 
-
-<div align=center><img width='300' src='image/con_matrix_svm2.png'/></div>
+![](image/con_matrix_svm2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300)
 
 ## Applying Decision Tree Model
 For Decision Tree method, data preprocessing is really simple. We don't need to standardize the data, what we need to do is just generate labels. We also use weekly frequency data, and the tag value is determined by the positive and negative return of the next week. The factors we use in Decision Trees are MACD, RSI, EMA, MOM and ATR. And we looking at the results of the model from two prespectives: 
@@ -79,8 +78,9 @@ We can also see the F1 score and the confusion matrix:
 0.56|0.56|0.56|0.55|
 
 Confusion matrix 
-
-<div align=center><img width='300' src='image/con_matrix_rf2.png'/></div>
+15123   | 6956
+--------|--------
+11555   | 8562
 
 ## Applying Logistic Regression Model
 For the method of logistic regression, we divide the data into training data(80%) and test data(20%）and do some standardization. We get same data processing as we mentioned in SVM and decision tree, and k-fold cross-validation is also applied in model to get a better result. After runing the regression and adujst the parameters accordingly, we find that the model behave better under C=10.0 and 'l2' penalty method.
@@ -91,9 +91,7 @@ training accuracy  | testing accuracy | precision_score | recall_score | f1_scor
 0.974|0.532|0.960|0.087|0.159
 
 Confusion matrix 
-30956   | 116
---------|--------
-29189   | 2773
+![](image/con_matrix_lr.png)
 
 ## Applying KNN Model
 In this part we use the KNN method to predict trends of stock prices. Compared to other classifiers, KNN is a relatively simple method because it has less parameters. It is also easy to understand because we only use the concept of ‘distance’. However, its drawback is also very obvious: too much computational cost. So we have to find a good balance between accuracy and computational cost. 
@@ -105,16 +103,15 @@ training Accuracy |  testing Accuracy
 0.689| 0.559
 
 The learning curve show that the gap between validation and training accuracy does not widen when the number of samples becomes larger. From the validation curve we can also see that 10 nearest neighbors is a good choice if we want to save computational cost and alleviate overfitting.
-
-<div align=center><img width='500' src='image/learning_curve.png'/></div>
-
-<div align=center><img width='500' src='image/validation_curve.png'/></div>
+![](image/learning_curve.png)
+![](image/validation_curve.png)
 
 To see the proportion for KNN to mistake an upgoing trend for a downward one, we calculate the confusion matrix. Based on the confusion matrix, we can calculate the precision, recall and F1-score. The recall score is lower than random guess, but this will not cause investors' direct loss because it mistakes an upgoing trend for a downward one and investors do not invest in these stocks.
 
 Confusion matrix 
-
-<div align=center><img width='300' src='image/con_matrix.png'/></div>
+14532   | 7547
+--------|--------
+11079   | 9038
 
 precision_score | recall_score | f1_score |
 ----------------|--------------|----------|
@@ -127,6 +124,14 @@ training accuracy  | testing accuracy | precision_score | recall_score | f1_scor
 0.664|0.560|0.546|0.459|0.499
 
 If we learn from 14 neighbors instead of 10 neighbors, both testing accuracy and precision increase by 0.1 pct, which is very small amount. The recall increases by 1 pct, but still lower than random guess. Besides, the computional cost increases by a large amount when we train a larger dataset. Therefore, 10 neighbor is a good choice if we want to have a balance between accuracy and computional cost.
+
+
+
+## Summary Table
+Models|SVM|RF| | recall_score| f1_score|
+-------|-----------------|-----------------|--------------|----------|
+Accuracy(train)|0.56|0.56|0.56|0.55|
+
 
 ## Improvements in the future
 1. We only chose a few of the quantification factors in our research. We believe that as we add more factors in the future, the more predictive power our model will have.
