@@ -61,7 +61,7 @@ training accuracy  | testing accuracy | precision_score | recall_score | f1_scor
 0.6025|0.610|0.61|0.61|0.61
 
 Confusion matrix 
-![](image/con_matrix_svm2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300 =200x200)
+![](image/con_matrix_svm2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300)
 
 ## Applying Decision Tree Model
 For Decision Tree method, data preprocessing is really simple. We don't need to standardize the data, what we need to do is just generate labels. We also use weekly frequency data, and the tag value is determined by the positive and negative return of the next week. The factors we use in Decision Trees are MACD, RSI, EMA, MOM and ATR. And we looking at the results of the model from two prespectives: 
@@ -91,7 +91,7 @@ training accuracy  | testing accuracy | precision_score | recall_score | f1_scor
 0。556|0.561|0.960|0.087|0.159
 
 Confusion matrix 
-![](image/con_matrix_lr.png =200x200)
+![](image/con_matrix_lr.png)
 
 ## Applying KNN Model
 In this part we use the KNN method to predict trends of stock prices. Compared to other classifiers, KNN is a relatively simple method because it has less parameters. It is also easy to understand because we only use the concept of ‘distance’. However, its drawback is also very obvious: too much computational cost. So we have to find a good balance between accuracy and computational cost. 
