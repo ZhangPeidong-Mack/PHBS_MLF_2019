@@ -91,9 +91,7 @@ training accuracy  | testing accuracy | precision_score | recall_score | f1_scor
 0.974|0.532|0.960|0.087|0.159
 
 Confusion matrix 
-30956   | 116
---------|--------
-29189   | 2773
+![](image/con_matrix_lr.png)
 
 ## Applying KNN Model
 In this part we use the KNN method to predict trends of stock prices. Compared to other classifiers, KNN is a relatively simple method because it has less parameters. It is also easy to understand because we only use the concept of ‘distance’. However, its drawback is also very obvious: too much computational cost. So we have to find a good balance between accuracy and computational cost. 
