@@ -61,7 +61,7 @@ training accuracy  | testing accuracy | precision_score | recall_score | f1_scor
 0.6025|0.610|0.61|0.61|0.61
 
 Confusion matrix 
-![](image/con_matrix_svm2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300)
+![](image/con_matrix_svm2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300 =200x200)
 
 ## Applying Decision Tree Model
 For Decision Tree method, data preprocessing is really simple. We don't need to standardize the data, what we need to do is just generate labels. We also use weekly frequency data, and the tag value is determined by the positive and negative return of the next week. The factors we use in Decision Trees are MACD, RSI, EMA, MOM and ATR. And we looking at the results of the model from two prespectives: 
@@ -83,15 +83,15 @@ Confusion matrix
 11555   | 8562
 
 ## Applying Logistic Regression Model
-For the method of logistic regression, we divide the data into training data(80%) and test data(20%）and do some standardization. We get same data processing as we mentioned in SVM and decision tree, and k-fold cross-validation is also applied in model to get a better result. Under GridSearchCV method, we set parameter "penaltys = ['l1','l2'],Cs = [0.0001, 0.001, 0.01, 0.1, 1.0, 10.0, 100.0, 1000.0].After runing the regression and adujst the parameters accordingly, we find that the model behave better under C=1000.0 and 'l2' penalty method.
+For the method of logistic regression, we divide the data into training data(80%) and test data(20%）and do some standardization. We get same data processing as we mentioned in SVM and decision tree, and k-fold cross-validation is also applied in model to get a better result. After runing the regression and adujst the parameters accordingly, we find that the model behave better under C=10.0 and 'l2' penalty method.
 
 In logistic regression, we can get the results as followings:
 training accuracy  | testing accuracy | precision_score | recall_score | f1_score |
 -------------------|------------------|-----------------|--------------|----------|
-0.556|0.561|0.55|0.61|0.59
+0。556|0.561|0.960|0.087|0.159
 
 Confusion matrix 
-![](image/con_matrix_lr.png)
+![](image/con_matrix_lr.png =200x200)
 
 ## Applying KNN Model
 In this part we use the KNN method to predict trends of stock prices. Compared to other classifiers, KNN is a relatively simple method because it has less parameters. It is also easy to understand because we only use the concept of ‘distance’. However, its drawback is also very obvious: too much computational cost. So we have to find a good balance between accuracy and computational cost. 
